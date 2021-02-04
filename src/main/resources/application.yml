@@ -1,0 +1,12 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 2d30f18157668f4947db
+            clientSecret: cf8fe10b8d3780b7e32dd79a73a035cdd1b45d3b
+        provider:
+          yuxiao:
+            authorization-uri: http://localhost:8080/yuxiao/oauth/authorize
+            token-uri: http://localhost:8080/yuxiao/oauth/token

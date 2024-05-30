@@ -1,4 +1,4 @@
-package com.yuxiao.auth.config;
+package com.yunling.authhub.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
@@ -12,10 +12,11 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityWebFilterChain configure(ServerHttpSecurity http) {
-        return http.authorizeExchange()
-                .pathMatchers("/", "/error", "/webjars/**").permitAll()
-                .anyExchange().authenticated()
-                .and().exceptionHandling(e -> e.authenticationEntryPoint(new HttpStatusServerEntryPoint(HttpStatus.UNAUTHORIZED))).oauth2Login()
-                .and().build();
+        return http.authorizeExchange(exchanges ->
+                        exchanges
+                                .pathMatchers("/", "/error", "/webjars/**").permitAll()
+                                .anyExchange().authenticated())
+                .exceptionHandling(e -> e.authenticationEntryPoint(new HttpStatusServerEntryPoint(HttpStatus.UNAUTHORIZED)))
+                .build();
     }
 }

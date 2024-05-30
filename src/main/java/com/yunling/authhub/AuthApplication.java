@@ -1,4 +1,4 @@
-package com.yuxiao.auth;
+package com.yunling.authhub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
